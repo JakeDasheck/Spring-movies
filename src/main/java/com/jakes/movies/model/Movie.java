@@ -1,18 +1,30 @@
 package com.jakes.movies.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="movies")
 public class Movie {
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
     private Integer id;
     private String name;
-    private String rating;
+    private Integer rating;
     private String genre;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(nullable = false)
     private Producent producent;
 
-    public Movie(Integer id, String name, String rating, String genre, Producent producent) {
+
+    public Movie(Integer id, String name, Integer rating, String genre, Producent producent) {
         this.id = id;
         this.name = name;
         this.rating = rating;
         this.genre = genre;
         this.producent = producent;
+    }
+
+    public Movie() {
     }
 
     @Override
@@ -34,7 +46,7 @@ public class Movie {
         return name;
     }
 
-    public String getRating() {
+    public Integer getRating() {
         return rating;
     }
 
@@ -54,7 +66,7 @@ public class Movie {
         this.name = name;
     }
 
-    public void setRating(String rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 

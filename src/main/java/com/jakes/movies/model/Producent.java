@@ -1,6 +1,14 @@
 package com.jakes.movies.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Producent {
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
     private Integer id;
     private String name;
     private String address;
@@ -9,6 +17,9 @@ public class Producent {
         this.id = id;
         this.name = name;
         this.address = address;
+    }
+
+    public Producent() {
     }
 
     @Override

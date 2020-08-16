@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/movies")
 public class MovieController {
-    MovieService service;
+    private final MovieService service;
 
     public MovieController(@Autowired MovieService service) {
         this.service = service;
@@ -22,8 +22,11 @@ public class MovieController {
     @PostMapping
     @ResponseBody
     public Movie createMovie(@RequestBody Movie movie) {
-        System.out.println(movie);
-        return service.createMovie(movie);
+
+        Movie createdMovie = service.createMovie(movie);
+        System.out.println("New movie created: " + createdMovie);
+        return createdMovie;
+
     }
 
 }
