@@ -10,10 +10,9 @@ This project is a simple database made in PostgreSQL to learn how to use Spring 
 Using POST request and JSON user can add movie to the database. Also, using GET request user can find movie by Id or by a name.
 	
 ## Technologies
-Project is created with:
+Project created with:
 * PostgreSQL
 * Java
 * Spring Framework
 * Maven
-* Apache Tomcat
 	
